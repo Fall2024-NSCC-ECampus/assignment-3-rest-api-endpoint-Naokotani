@@ -77,7 +77,6 @@ public class OrderController {
     public ResponseEntity<Order> updateOrder(@RequestBody Order newOrder, @PathVariable Long id) {
         Optional<Order> existingOrder = orderRepository.findById(id);
         existingOrder.ifPresent(order -> {
-            order.setUser(newOrder.getUser());
             order.setProducts(newOrder.getProducts());
             orderRepository.save(order);
         });

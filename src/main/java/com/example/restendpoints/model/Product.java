@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Represents a product for sale in the store and its associated details including stock
  */
@@ -16,7 +19,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Product {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String name;
@@ -28,6 +31,8 @@ public class Product {
     private int stock;
     @Column
     private Category category;
+    @ManyToMany(mappedBy = "products")  // "products" is the field name in the Order class
+    private Set<Order> orders = new HashSet<>();
 
     public Product(String name, double price, String description,
                    int stock, Category category) {

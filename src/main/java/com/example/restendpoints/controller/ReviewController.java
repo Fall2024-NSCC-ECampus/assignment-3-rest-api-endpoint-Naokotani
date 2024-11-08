@@ -1,6 +1,6 @@
 package com.example.restendpoints.controller;
 
-import com.example.restendpoints.model.Return;
+import com.example.restendpoints.model.Returns;
 import com.example.restendpoints.model.Review;
 import com.example.restendpoints.repository.ReviewRepository;
 import org.springframework.http.HttpStatus;
@@ -22,21 +22,21 @@ public class ReviewController {
     }
 
     /**
-     * Creates a new {@link Return}.
-     * @param review return to be created to be created.
-     * @return the created return.
+     * Creates a new {@link Review}.
+     * @param review review to be created to be created.
+     * @return the created review.
      */
-    @PostMapping("/return/create")
+    @PostMapping("/review/create")
     public ResponseEntity<Review> createReturn(@RequestBody Review review) {
         reviewRepository.save(review);
         return new ResponseEntity<>(review, HttpStatus.CREATED);
     }
 
     /**
-     * Lists all returns.
-     * @return A list of existing returns.
+     * Lists all reviews.
+     * @return A list of existing reviews.
      */
-    @GetMapping("/return/list")
+    @GetMapping("/review/list")
     public ResponseEntity<List<Review>> getAllReturns() {
         List<Review> reviews = reviewRepository.findAll();
         return new ResponseEntity<>(reviews, HttpStatus.OK);
@@ -44,10 +44,10 @@ public class ReviewController {
 
     /**
      *
-     * @param id id of the return to be returned.
-     * @return either the return, or NOT_FOUND http status if the return doesn't exist.
+     * @param id id of the review to be returned.
+     * @return either the review, or NOT_FOUND http status if the review doesn't exist.
      */
-    @GetMapping("/return/get/{id}")
+    @GetMapping("/review/get/{id}")
     public ResponseEntity<Review> getReturnById(@PathVariable Long id) {
         Optional<Review> review = reviewRepository.findById(id);
         return review.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
@@ -55,12 +55,12 @@ public class ReviewController {
     }
 
     /**
-     * Deletes a return.
-     * @param id id of the return to be deleted.
-     * @return returns status OK if the return has been deleted successfully or NOT_FOUND if
-     * return does not exist.
+     * Deletes a review.
+     * @param id id of the review to be deleted.
+     * @return returns status OK if the review has been deleted successfully or NOT_FOUND if
+     * review does not exist.
      */
-    @DeleteMapping("/return/delete/{id}")
+    @DeleteMapping("/review/delete/{id}")
     public ResponseEntity<Review> deleteReturn(@PathVariable Long id) {
         Optional<Review> review = reviewRepository.findById(id);
         review.ifPresent(_ -> reviewRepository.deleteById(id));
@@ -69,12 +69,12 @@ public class ReviewController {
     }
 
     /**
-     * Updates a review with new return details
+     * Updates a review with new review details
      * @param newReview The new review details.
      * @param id The idea of the review to be updated.
-     * @return Either the new created review, or NOT_FOUND if the return doesn't exist.
+     * @return Either the new created review, or NOT_FOUND if the review doesn't exist.
      */
-    @PutMapping("/return/update/{id}")
+    @PutMapping("/review/update/{id}")
     public ResponseEntity<Review> updateReturn(@RequestBody Review newReview,
                                                @PathVariable Long id) {
         Optional<Review> existingReturn = reviewRepository.findById(id);

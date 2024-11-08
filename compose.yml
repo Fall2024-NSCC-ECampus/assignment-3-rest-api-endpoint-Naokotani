@@ -1,0 +1,14 @@
+services:
+  rest-endpoint-db:
+    image: 'mysql:latest'
+    environment:
+      MYSQL_DATABASE: rest-endpoints
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: verysecret
+    ports:
+      - '3306:3306'
+    volumes:
+      - rest-end-points:/var/lib/mysql
+volumes:
+  rest-end-points:

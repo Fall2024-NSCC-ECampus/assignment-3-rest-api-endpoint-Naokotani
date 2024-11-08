@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Review {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     private User user;

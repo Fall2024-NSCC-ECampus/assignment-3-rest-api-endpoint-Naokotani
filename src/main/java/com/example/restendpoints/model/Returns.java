@@ -14,9 +14,9 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Return {
+public class Returns {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
     private User user;
@@ -27,7 +27,7 @@ public class Return {
     @Column(nullable = false)
     private String details;
 
-    public Return(User user, Product product, Order order, String details) {
+    public Returns(User user, Product product, Order order, String details) {
         this.user = user;
         this.product = product;
         this.order = order;

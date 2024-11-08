@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.example.restendpoints"},{"l":"com.example.restendpoints.controller"},{"l":"com.example.restendpoints.model"},{"l":"com.example.restendpoints.repository"}];updateSearchResults();

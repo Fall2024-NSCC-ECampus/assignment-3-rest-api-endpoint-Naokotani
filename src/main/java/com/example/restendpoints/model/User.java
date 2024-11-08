@@ -8,17 +8,18 @@ import lombok.Setter;
 
 import java.util.Set;
 
+
 /**
  * Represents a user including their address and currently active orders.
  */
-@Entity
+@Entity(name = "users")
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false)
     private String username;
@@ -26,7 +27,6 @@ public class User {
     private Set<Address> addresses;
     @OneToOne
     private Address defaultAddress;
-    @ManyToMany
+    @OneToMany
     private Set<Order> orders;
-
 }

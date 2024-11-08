@@ -1,0 +1,4 @@
+com.example.restendpoints
+com.example.restendpoints.controller
+com.example.restendpoints.model
+com.example.restendpoints.repository
