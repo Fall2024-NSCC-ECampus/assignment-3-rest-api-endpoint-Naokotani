@@ -1,0 +1,6 @@
+package com.example.restendpoints.repository;
+
+import com.example.restendpoints.model.Review;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ReviewRepository extends JpaRepository<Review, Long> {}
