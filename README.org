@@ -1,0 +1,4 @@
+Demonstration of a Spring rest api with a database schema produced by spring JPA.
+
+* Usage
+Create the database using the docker file =compose.yml= and then start the app in Intellij or another IDE. In Intellij you can use the information in the application properties to connect to the database to see the tables and run queries on the database.
